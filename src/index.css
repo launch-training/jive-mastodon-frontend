@@ -52,3 +52,22 @@ p {
     scroll-padding-top: 3rem;
   }
 }
+
+/**FONTS**/
+
+.cabin-bold {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  text-transform: uppercase;
+}
+
+.inconsolata-normal {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
