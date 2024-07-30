@@ -1,15 +1,13 @@
 import "./App.css";
 
+import SelectCity from "./components/SelectCity";
+
 function App() {
   return (
     <>
       <nav className="header inconsolata-normal">HIER KOMMT DIE NAV BAR</nav>
       <div className="main_container">
-        <div className="city_selection_container inconsolata-normal">
-          <h1 className="cabin-bold">City Selection</h1>
-          <input type="text" />
-          <button>search city</button>
-        </div>
+          <SelectCity />
         <div className="saved_cities_container inconsolata-normal">
           <h3 className="cabin-bold">Saved Cities</h3>
           <div>New York</div>
