@@ -1,10 +1,11 @@
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <nav className="header inconsolata-normal">HIER KOMMT DIE NAV BAR</nav>
       <div className="main_container">
+        <Navbar />
         <div className="city_selection_container inconsolata-normal">
           <h1 className="cabin-bold">City Selection</h1>
           <input type="text" />
