@@ -70,3 +70,9 @@ p {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+
+h1 {
+  font-size: 2rem;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+}

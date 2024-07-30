@@ -1,4 +1,6 @@
 import "./App.css";
+
+import SelectCity from "./components/SelectCity";
 import Navbar from "./components/Navbar";
 import SavedCitiesOverview from "./components/SavedCitiesOverview";
 
@@ -8,11 +10,7 @@ function App() {
       <Navbar />
       <div className="main_container">
         <div className="left">
-          <div className="city_selection_container inconsolata-normal">
-            <h1 className="cabin-bold">City Selection</h1>
-            <input type="text" />
-            <button>search city</button>
-          </div>
+          <SelectCity />
           <SavedCitiesOverview />
         </div>
         <div className="city_preview_container inconsolata-normal right">
