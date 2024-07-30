@@ -1,21 +1,19 @@
 import "./App.css";
 
 import SelectCity from "./components/SelectCity";
+import Navbar from "./components/Navbar";
+import SavedCitiesOverview from "./components/SavedCitiesOverview";
 
 function App() {
   return (
     <>
-      <nav className="header inconsolata-normal">HIER KOMMT DIE NAV BAR</nav>
+      <Navbar />
       <div className="main_container">
+        <div className="left">
           <SelectCity />
-        <div className="saved_cities_container inconsolata-normal">
-          <h3 className="cabin-bold">Saved Cities</h3>
-          <div>New York</div>
-          <div>Los Angeles</div>
-          <div>Chicago</div>
-          <div>PAGINATION</div>
+          <SavedCitiesOverview />
         </div>
-        <div className="city_preview_container inconsolata-normal">
+        <div className="city_preview_container inconsolata-normal right">
           <h3 className="cabin-bold">City Preview</h3>
           <p>City: New York</p>
           <p>Weather: Sunny</p>
