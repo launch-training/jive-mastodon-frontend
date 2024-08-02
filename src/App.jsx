@@ -9,7 +9,12 @@ function App() {
       theme={{
         token: {
           // Seed Token
-          colorPrimary: '#bd2bf1'
+          "colorPrimary": "#bd2bf1",
+          "colorInfo": "#bd2bf1",
+          "colorTextBase": "#101935",
+          "colorSuccess": "#51cb20",
+          "colorError": "#e9724c",
+          "colorWarning": "#ffc857"
         },
       }}
       >
