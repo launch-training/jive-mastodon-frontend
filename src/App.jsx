@@ -1,27 +1,33 @@
-import "./App.css";
-
 import SelectCity from "./components/SelectCity";
 import Navbar from "./components/Navbar";
 import SavedCitiesOverview from "./components/SavedCitiesOverview";
+import {Button, ConfigProvider, Card} from 'antd';
 
 function App() {
   return (
-    <>
+    <ConfigProvider 
+      theme={{
+        token: {
+          // Seed Token
+          colorPrimary: '#bd2bf1'
+        },
+      }}
+      >
       <Navbar />
       <div className="main_container">
-        <div className="left">
+        <Card bordered={false} className='box'>
           <SelectCity />
           <SavedCitiesOverview />
-        </div>
-        <div className="city_preview_container inconsolata-normal right">
+        </Card>
+        <Card className="city_preview_container inconsolata-normal box">
           <h3 className="cabin-bold">City Preview</h3>
           <p>City: New York</p>
           <p>Weather: Sunny</p>
           <p>Custom Text Example</p>
-          <button>save</button>
-        </div>
+          <Button type = 'primary'>SAVE CITY</Button>
+        </Card>
       </div>
-    </>
+    </ConfigProvider>
   );
 }
 

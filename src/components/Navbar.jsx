@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import logo from "../assets/images/elephant-alone.png";
+import {Button} from 'antd';
 
 function Navbar() {
   return (
@@ -14,7 +15,7 @@ function Navbar() {
       </ul>
 
       <div>
-        <button>Login</button>
+        <Button type = 'primary'>Login</Button>
       </div>
     </header>
   );
