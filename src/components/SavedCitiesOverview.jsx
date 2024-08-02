@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { Pagination, Card} from "antd";
 
 function SavedCitiesOverview() {
   const [cities, setCities] = useState([]); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
@@ -28,7 +29,7 @@ function SavedCitiesOverview() {
         return <div key={city.uuid}>{city.name}</div>; //key ist bei Listen IMMER ein erforderliches Property damit React sich nicht selbst verwirrt
       })}
 
-      <div>PAGINATION</div>
+    <Pagination align="center" defaultCurrent={1} total={50} />
     </div>
   );
 }
