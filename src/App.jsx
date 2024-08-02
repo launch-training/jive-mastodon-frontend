@@ -3,10 +3,18 @@ import "./App.css";
 import SelectCity from "./components/SelectCity";
 import Navbar from "./components/Navbar";
 import SavedCitiesOverview from "./components/SavedCitiesOverview";
+import {Button, ConfigProvider} from 'antd';
 
 function App() {
   return (
-    <>
+    <ConfigProvider 
+      theme={{
+        token: {
+          // Seed Token
+          colorPrimary: '#bd2bf1'
+        },
+      }}
+      >
       <Navbar />
       <div className="main_container">
         <div className="left">
@@ -21,7 +29,7 @@ function App() {
           <button>save</button>
         </div>
       </div>
-    </>
+    </ConfigProvider>
   );
 }
 
