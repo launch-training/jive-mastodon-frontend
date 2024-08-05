@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Pagination, Card} from "antd";
 
-function SavedCitiesOverview() {
+function SavedCitiesOverview({loading}) {
   const [cities, setCities] = useState([]); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
 
   useEffect(() => {
     getCities(); //immer wenn sich etwas verändert, bzw. beim ersten Laden sollen die Städte abgefragt werden
-  }, []); //leerer dependencies array, weil wir hier nichts brauchen
+  }, [loading]); //leerer dependencies array, weil wir hier nichts brauchen
 
   const getCities = async () => {
     //async, denn wir müssen auch eine Antwort warten und können nicht sagen wie lange, aber die restliche Seite darf weiterladen

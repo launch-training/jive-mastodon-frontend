@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { useEffect, useState } from "react";
 
-const CityPreview = ({city}) => {
+const CityPreview = ({city, loading, setLoading}) => {
     const [location, setLocation] = useState(null);
     const [weather, setWeather] = useState(null);
 
@@ -39,6 +39,7 @@ const CityPreview = ({city}) => {
                 headers: {"Content-Type": "application/json"}
             });
             /*const json = await result.json(); */
+            setLoading(prev => !prev);
             console.log(result); 
             } catch (error) {
             console.log(error); 

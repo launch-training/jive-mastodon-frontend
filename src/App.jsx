@@ -8,6 +8,7 @@ import { useState } from "react";
 function App() {
 
   const [city, setCity] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   return (
     <ConfigProvider 
@@ -27,9 +28,9 @@ function App() {
       <div className="main_container inconsolata-normal">
         <Card bordered={false} className='box'>
           <SelectCity setCity={setCity}/>
-          <CityPreview city={city} />
+          <CityPreview city={city} loading={loading} setLoading={setLoading}/>
         </Card>
-        <SavedCitiesOverview/>
+        <SavedCitiesOverview loading={loading}/>
       </div>
     </ConfigProvider>
   );
