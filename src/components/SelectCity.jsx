@@ -3,9 +3,15 @@ import { useState } from "react";
 
 const { Search } = Input;
 
-const SelectCity = ({city, setCity}) => {
+const SelectCity = ({setCity}) => {
 
-    console.log(city)
+    const [onChangeCity, setOnChangeCity] = useState("");
+
+    console.log(onChangeCity)
+
+    const handleSearch = () => {
+        setCity(onChangeCity);
+    }
 
     return (
         <div className="city_selection_container inconsolata-normal">
@@ -15,8 +21,9 @@ const SelectCity = ({city, setCity}) => {
         allowClear
         enterButton="Search city"
         size="medium"
-        value = {city} 
-        onChange = {e => setCity(e.target.value)}
+        value = {onChangeCity} 
+        onChange = {e => setOnChangeCity(e.target.value)}
+        onSearch={handleSearch}
         />
         </div>
     );

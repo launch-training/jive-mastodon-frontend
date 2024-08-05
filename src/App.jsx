@@ -27,7 +27,7 @@ function App() {
       <Navbar />
       <div className="main_container inconsolata-normal">
         <Card bordered={false} className='box'>
-          <SelectCity city={city} setCity={setCity}/>
+          <SelectCity setCity={setCity}/>
           <CityPreview city={city}/>
         </Card>
         <SavedCitiesOverview />
