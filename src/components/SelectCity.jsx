@@ -3,14 +3,13 @@ import { useState } from "react";
 
 const { Search } = Input;
 
-const SelectCity = () => {
+const SelectCity = ({city, setCity}) => {
 
-    const [city, setCity] = useState("");
     console.log(city)
 
     return (
         <div className="city_selection_container inconsolata-normal">
-        <h1 className="cabin-bold">City Selection</h1>
+        <h1 className="cabin-bold major_headline">City Selection</h1>
         <Search
         placeholder="Enter city name"
         allowClear

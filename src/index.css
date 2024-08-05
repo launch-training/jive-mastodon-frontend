@@ -72,10 +72,16 @@ p {
   color: black;
 }
 
-h1 {
+.major_headline {
   font-size: 2rem;
   margin-top: 1%;
-  margin-bottom: 0.5%;
+  margin-bottom: 0.5%;  
+}
+
+.minor_headline {
+  font-size: 1.55rem;
+  margin-top: 1%;
+  margin-bottom: 0.5%;  
 }
 
 .main_container {
@@ -92,7 +98,18 @@ h1 {
   background-position: center bottom;
 }
 
-.box {
+.box { /* TODO: Design change maybe. Looks a little odd */
   width: 30%;
   height: 40%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-top: 1%;
+}
+
+.city_preview {
+  margin-top: 4%;
 }

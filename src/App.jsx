@@ -2,8 +2,14 @@ import SelectCity from "./components/SelectCity";
 import Navbar from "./components/Navbar";
 import SavedCitiesOverview from "./components/SavedCitiesOverview";
 import {Button, ConfigProvider, Card} from 'antd';
+import CityPreview from "./components/CityPreview";
+import { useState } from "react";
 
 function App() {
+
+  const [city, setCity] = useState("");
+
+
   return (
     <ConfigProvider 
       theme={{
@@ -19,18 +25,12 @@ function App() {
       }}
       >
       <Navbar />
-      <div className="main_container">
+      <div className="main_container inconsolata-normal">
         <Card bordered={false} className='box'>
-          <SelectCity />
-          <SavedCitiesOverview />
+          <SelectCity city={city} setCity={setCity}/>
+          <CityPreview city={city}/>
         </Card>
-        <Card className="city_preview_container inconsolata-normal box">
-          <h3 className="cabin-bold">City Preview</h3>
-          <p>City: New York</p>
-          <p>Weather: Sunny</p>
-          <p>Custom Text Example</p>
-          <Button type = 'primary'>SAVE CITY</Button>
-        </Card>
+        <SavedCitiesOverview />
       </div>
     </ConfigProvider>
   );
