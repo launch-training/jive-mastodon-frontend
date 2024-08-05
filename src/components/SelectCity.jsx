@@ -3,21 +3,25 @@ import { useState } from "react";
 
 const { Search } = Input;
 
-const SelectCity = () => {
+const SelectCity = ({setCity}) => {
 
-    const [city, setCity] = useState("");
-    console.log(city)
+    const [onChangeCity, setOnChangeCity] = useState("");
+
+    const handleSearch = () => {
+        setCity(onChangeCity);
+    }
 
     return (
         <div className="city_selection_container inconsolata-normal">
-        <h1 className="cabin-bold">City Selection</h1>
+        <h1 className="cabin-bold major_headline">City Selection</h1>
         <Search
         placeholder="Enter city name"
         allowClear
         enterButton="Search city"
         size="medium"
-        value = {city} 
-        onChange = {e => setCity(e.target.value)}
+        value = {onChangeCity} 
+        onChange = {e => setOnChangeCity(e.target.value)}
+        onSearch={handleSearch}
         />
         </div>
     );
