@@ -27,9 +27,9 @@ function App() {
       <div className="main_container inconsolata-normal">
         <Card bordered={false} className='box'>
           <SelectCity setCity={setCity}/>
-          <CityPreview city={city}/>
+          <CityPreview city={city} />
         </Card>
-        <SavedCitiesOverview />
+        <SavedCitiesOverview/>
       </div>
     </ConfigProvider>
   );

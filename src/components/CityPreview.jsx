@@ -16,9 +16,7 @@ const CityPreview = ({city}) => {
     const getWeatherByCity = async () => {
         if (city != null){
             try {
-                const result = await fetch(`${basic_url}?key=${key}&q=${city}`, {
-                  method: 'GET',
-                  crossorigin: true}); // ?? brauchen wir das?
+                const result = await fetch(`${basic_url}?key=${key}&q=${city}`);
                 const json = await result.json(); 
                 setLocation(json.location);
                 setWeather(json.current);
@@ -29,7 +27,24 @@ const CityPreview = ({city}) => {
         } 
       };
 
+      const geoObject = {latitude:location?.lat, longitude:location?.lon, name:location?.name};
+      console.log(geoObject)
+      console.log(JSON.stringify(geoObject))
 
+      const postGeoPoint = async () => {
+        try {
+            const result = await fetch(`http://localhost:3000/cities`, {
+                method : "POST", 
+                body : JSON.stringify(geoObject),
+                headers: {"Content-Type": "application/json"}
+            });
+            /*const json = await result.json(); */
+            console.log(result); 
+            } catch (error) {
+            console.log(error); 
+            }
+        
+      };
 
     return (
         <div className="city_preview">
@@ -40,7 +55,7 @@ const CityPreview = ({city}) => {
             <p>Temperature: {weather?.temp_c} °C</p>
             <p>Description: {weather?.condition?.text}</p>
             <img src={weather?.condition?.icon}/>
-            <Button type = 'primary'>SAVE CITY</Button>
+            <Button type = 'primary' onClick={postGeoPoint}>SAVE CITY</Button>
         </div>
     )
 }
