@@ -7,8 +7,6 @@ const SelectCity = ({setCity}) => {
 
     const [onChangeCity, setOnChangeCity] = useState("");
 
-    console.log(onChangeCity)
-
     const handleSearch = () => {
         setCity(onChangeCity);
     }

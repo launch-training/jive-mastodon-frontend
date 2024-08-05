@@ -7,8 +7,7 @@ import { useState } from "react";
 
 function App() {
 
-  const [city, setCity] = useState("");
-
+  const [city, setCity] = useState(null);
 
   return (
     <ConfigProvider 
