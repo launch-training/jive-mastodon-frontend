@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Pagination, Card} from "antd";
+import CityCard from "./CityCard";
 
 function SavedCitiesOverview({loading}) {
   const [cities, setCities] = useState([]); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
@@ -26,7 +27,7 @@ function SavedCitiesOverview({loading}) {
       <h2 className="cabin-bold major_headline">Saved Cities</h2>
       {cities.map((city) => {
         //map über alle Elemente des Arrays. Einzelne Felder des JSON werden über Dot Notation abgefragt .name .uuid etc
-        return <div key={city.uuid}>{city.name}</div>; //key ist bei Listen IMMER ein erforderliches Property damit React sich nicht selbst verwirrt
+        return <CityCard key={city.uuid} city = {city}/>; //key ist bei Listen IMMER ein erforderliches Property damit React sich nicht selbst verwirrt
       })}
 
     <Pagination align="center" defaultCurrent={1} total={50} />
