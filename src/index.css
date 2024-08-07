@@ -141,3 +141,7 @@ p {
   height: 100vh;
   background-position: center bottom;
 }
+
+.alert_city_name {
+  color: red;
+}
