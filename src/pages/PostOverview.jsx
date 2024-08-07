@@ -31,6 +31,7 @@ const PostOverview = () => {
                 <p>{post.name}</p>
                 <p>{post.postText}</p>
                 <p>{post.mastodonDate}</p>
+                <a href={post.mastodonUrl}>Original Mastodon Post</a>
                 <img src={post.icon} alt="" />
               </Card>
             );
