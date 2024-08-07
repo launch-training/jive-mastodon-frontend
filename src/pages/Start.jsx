@@ -10,11 +10,12 @@ function Start() {
 
   return (
     <div className="main_container inconsolata-normal">
+      <div className="flex_container">
       <Card bordered={false} className="box">
         <SelectCity setCity={setCity} />
         <CityPreview city={city} loading={loading} setLoading={setLoading} />
       </Card>
-      <SavedCitiesOverview loading={loading} />
+      <SavedCitiesOverview loading={loading} /></div>
     </div>
   );
 }

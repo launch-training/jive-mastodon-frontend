@@ -86,10 +86,6 @@ p {
 }
 
 .main_container {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  gap: 2rem;
   background: url(".\assets\images\alex-block-0FTASntRc2M-unsplash.jpg");
   background-size: cover;
   background-position: center center;
@@ -99,9 +95,15 @@ p {
   background-position: center bottom;
 }
 
+.flex_container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+}
+
 .box {
   width: 30%;
-  height: 65%;
   background: rgba(37, 37, 37, 0.863);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -154,8 +156,8 @@ p {
 }
 
 /*********************Media Queries*****************/
-@media only screen and (max-width: 1050px) {
-  .main_container {
+@media only screen and (max-width: 900px) {
+  .flex_container{
     display: flex;
     justify-content: center;
     align-items: center;
