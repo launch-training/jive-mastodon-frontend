@@ -10,7 +10,7 @@ const SelectCity = ({ setCity }) => {
 
   const handleSearch = () => {
     setCity(onChangeCity);
-    setToggleAlert((prev) => !prev);
+    setToggleAlert(true);
   };
 
   return (
