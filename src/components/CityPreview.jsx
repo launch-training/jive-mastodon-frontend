@@ -36,7 +36,7 @@ const CityPreview = ({ city, loading, setLoading }) => {
 
   const postGeoPoint = async () => {
     try {
-      const result = await fetch(`http://localhost:3000/cities`, {
+      const result = await fetch(`http://localhost:8080/cities`, {
         method: "POST",
         body: JSON.stringify(geoObject),
         headers: { "Content-Type": "application/json" },
@@ -47,7 +47,6 @@ const CityPreview = ({ city, loading, setLoading }) => {
       console.log(error);
     }
   };
-
 
   return (
     <div className="city_preview">
