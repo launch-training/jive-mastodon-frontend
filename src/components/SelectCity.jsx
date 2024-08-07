@@ -28,8 +28,9 @@ const SelectCity = ({ setCity }) => {
       {toggleAlert && (
         <div>
           <p className="alert_city_name">
-            Please refine your search if you are not happy with the result.
-            Otherwise click save city.
+            Please refine your search if you are not happy with the result. For
+            example you can also enter the Bundesland and country. Otherwise
+            click save city.
           </p>
         </div>
       )}
