@@ -10,7 +10,7 @@ const PostOverview = () => {
 
   const getPosts = async () => {
     try {
-      const result = await fetch("http://localhost:3000/posts");
+      const result = await fetch("http://localhost:8080/posts");
       const json = await result.json();
       console.log(json);
       setPosts(json);

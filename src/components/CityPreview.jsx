@@ -48,6 +48,7 @@ const CityPreview = ({ city, loading, setLoading }) => {
     }
   };
 
+
   return (
     <div className="city_preview">
       <div>
