@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import { Button, ConfigProvider } from "antd";
 import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 function Layout() {
   return (
@@ -26,6 +27,7 @@ function Layout() {
         },
       }}
     >
+      <ToastContainer />
       <Navbar />
       <Outlet />
     </ConfigProvider>
