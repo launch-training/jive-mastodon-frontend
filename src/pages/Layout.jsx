@@ -24,6 +24,8 @@ function Layout() {
           colorError: "#e9724c",
           colorWarning: "#ffc857",
           fontSize: 16,
+          fontFamily: "Inconsolata",
+          fontWeight: 500,
         },
       }}
     >
