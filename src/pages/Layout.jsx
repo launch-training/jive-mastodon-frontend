@@ -6,6 +6,14 @@ function Layout() {
   return (
     <ConfigProvider
       theme={{
+        Input: {
+          inputFontSize: 16,
+        },
+        components: {
+          Card: {
+            fontSize: 16,
+          },
+        },
         token: {
           // Seed Token
           colorPrimary: "#bd2bf1",
@@ -14,6 +22,7 @@ function Layout() {
           colorSuccess: "#51cb20",
           colorError: "#e9724c",
           colorWarning: "#ffc857",
+          fontSize: 16,
         },
       }}
     >
