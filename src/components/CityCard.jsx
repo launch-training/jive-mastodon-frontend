@@ -1,5 +1,6 @@
 import { Switch } from 'antd';
 import { useState } from 'react';
+import { notifyFailure } from './Toast';
 
 
 const CityCard = ({city}) => {
@@ -18,6 +19,7 @@ const CityCard = ({city}) => {
         )
         } catch (error) {
             console.log(error);
+            notifyFailure("Something went wrong");
         }
       }
 

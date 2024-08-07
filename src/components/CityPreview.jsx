@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { notifySuccess } from "./Toast";
 
 const CityPreview = ({ city, loading, setLoading }) => {
   const [location, setLocation] = useState(null);
@@ -45,9 +45,9 @@ const CityPreview = ({ city, loading, setLoading }) => {
       });
       setLoading((prev) => !prev);
       if (result.status === 201) {
-        notify("New city was added!");
+        notifySuccess("New city was added!");
       } else if (result.status === 200) {
-        notify("City is already saved!");
+        notifySuccess("City is already saved!");
       }
       console.log(result.status);
     } catch (error) {
@@ -55,17 +55,6 @@ const CityPreview = ({ city, loading, setLoading }) => {
     }
   };
 
-  const notify = (message) =>
-    toast.success(message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
 
   return (
     <div className="city_preview">
