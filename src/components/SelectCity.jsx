@@ -6,7 +6,6 @@ const { Search } = Input;
 const SelectCity = ({ setCity }) => {
   const [onChangeCity, setOnChangeCity] = useState("");
   const [toggleAlert, setToggleAlert] = useState(false);
-  console.log(onChangeCity);
 
   const handleSearch = () => {
     setCity(onChangeCity);
