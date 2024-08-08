@@ -155,6 +155,10 @@ p {
   gap : 0.75rem
 }
 
+.sitting_elephant {
+  height: 25rem;
+}
+
 /*********************Media Queries*****************/
 @media only screen and (max-width: 900px) {
   .flex_container{
