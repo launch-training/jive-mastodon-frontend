@@ -7,11 +7,11 @@ import elephant from "../assets/images/Mastodon_mascot_vector_version.svg.png";
 
 function SavedCitiesOverview({ loading }) {
   const [cities, setCities] = useState(null); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     getCities(); //immer wenn sich etwas verändert, bzw. beim ersten Laden sollen die Städte abgefragt werden
-  }, [loading]); //leerer dependencies array, weil wir hier nichts brauchen
+  }, [loading, page]); //leerer dependencies array, weil wir hier nichts brauchen
 
   const getCities = async () => {
     //async, denn wir müssen auch eine Antwort warten und können nicht sagen wie lange, aber die restliche Seite darf weiterladen
@@ -47,7 +47,7 @@ function SavedCitiesOverview({ loading }) {
             ghost
             icon={<LeftOutlined />}
             onClick={() => setPage((prev) => prev - 1)}
-            disabled={page <= 1}
+            disabled={page <= 0}
           />
           <Button
             type="primary"
