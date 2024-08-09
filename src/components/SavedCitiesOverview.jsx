@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Pagination, Card } from "antd";
-import { ChevronLeft, ChevronRight } from "../assets/icons/icnos";
+import { Button, Card } from "antd";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import CityCard from "./CityCard";
+import elephant from "../assets/images/Mastodon_mascot_vector_version.svg.png";
 
 function SavedCitiesOverview({ loading }) {
-  const [cities, setCities] = useState([]); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
+  const [cities, setCities] = useState(null); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
 
   useEffect(() => {
     getCities(); //immer wenn sich etwas verändert, bzw. beim ersten Laden sollen die Städte abgefragt werden
@@ -25,12 +27,28 @@ function SavedCitiesOverview({ loading }) {
   return (
     <Card className="saved_cities_container inconsolata-normal box">
       <h2 className="cabin-bold major_headline">Saved Cities</h2>
-      {cities.map((city) => {
-        //map über alle Elemente des Arrays. Einzelne Felder des JSON werden über Dot Notation abgefragt .name .uuid etc
-        return <div key={city.uuid}>{city.name}</div>; //key ist bei Listen IMMER ein erforderliches Property damit React sich nicht selbst verwirrt
-      })}
-
-      <Pagination align="center" defaultCurrent={1} total={50} />
+      {cities ? (
+        cities.map((city) => {
+          //map über alle Elemente des Arrays. Einzelne Felder des JSON werden über Dot Notation abgefragt .name .uuid etc
+          return <CityCard key={city.uuid} city={city} />; //key ist bei Listen IMMER ein erforderliches Property damit React sich nicht selbst verwirrt
+        })
+      ) : (
+        <div>
+          <p>Nothing to see here yet. Please save a city.</p>
+          <img src={elephant} />
+        </div>
+      )}
+      {cities && (
+        <div className="btn_container">
+          <Button type="primary" shape="circle" ghost icon={<LeftOutlined />} />
+          <Button
+            type="primary"
+            shape="circle"
+            ghost
+            icon={<RightOutlined />}
+          />
+        </div>
+      )}
     </Card>
   );
 }

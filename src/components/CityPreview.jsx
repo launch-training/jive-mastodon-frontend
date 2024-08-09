@@ -1,7 +1,8 @@
 import { Button } from "antd";
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { notifyFailure, notifySuccess } from "./Toast";
+import mastodon_looking_up from "../assets/images/mastodon_looking_up.png";
 
 const CityPreview = ({ city, loading, setLoading }) => {
   const [location, setLocation] = useState(null);
@@ -18,12 +19,16 @@ const CityPreview = ({ city, loading, setLoading }) => {
     if (city != null) {
       try {
         const result = await fetch(`${basic_url}?key=${key}&q=${city}`);
+        if(result.status === 400) {
+          notifyFailure("This city can't be found.");
+          return ;
+        }
         const json = await result.json();
         setLocation(json.location);
         setWeather(json.current);
         console.log(json);
       } catch (error) {
-        console.log(error);
+        console.log("Ich komme aus dem Error", error);
       }
     }
   };
@@ -45,9 +50,9 @@ const CityPreview = ({ city, loading, setLoading }) => {
       });
       setLoading((prev) => !prev);
       if (result.status === 201) {
-        notify("New city was added!");
+        notifySuccess("New city was added!");
       } else if (result.status === 200) {
-        notify("City is already saved!");
+        notifySuccess("City is already saved!");
       }
       console.log(result.status);
     } catch (error) {
@@ -55,33 +60,29 @@ const CityPreview = ({ city, loading, setLoading }) => {
     }
   };
 
-  const notify = (message) =>
-    toast.success(message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
 
   return (
     <div className="city_preview">
       <div>
         <h3 className="cabin-bold minor_headline">City Preview</h3>
+        {location ? 
+        <>
         <p>City: {location?.name}</p>
         <p>Region: {location?.region}</p>
         <p>Country: {location?.country}</p>
         <p>Temperature: {weather?.temp_c} °C</p>
         <p>Description: {weather?.condition?.text}</p>
         <img src={weather?.condition?.icon} />
+          <Button type="primary" onClick={postGeoPoint}>
+            SAVE CITY
+        	</Button>
+        </>
+        : 
+        <p>
+          <img src={mastodon_looking_up} className="sitting_elephant" />
+        </p>
+        }
       </div>
-
-      <Button type="primary" onClick={postGeoPoint}>
-        SAVE CITY
-      </Button>
     </div>
   );
 };
