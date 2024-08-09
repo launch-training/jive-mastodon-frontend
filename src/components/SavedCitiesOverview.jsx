@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { Pagination, Card} from "antd";
+import { Pagination, Card } from "antd";
+import { ChevronLeft, ChevronRight } from "../assets/icons/icnos";
 
-function SavedCitiesOverview({loading}) {
+function SavedCitiesOverview({ loading }) {
   const [cities, setCities] = useState([]); //wir brauchen ein Array mit allen Städten die wir von der API bekommen
 
   useEffect(() => {
@@ -29,7 +30,7 @@ function SavedCitiesOverview({loading}) {
         return <div key={city.uuid}>{city.name}</div>; //key ist bei Listen IMMER ein erforderliches Property damit React sich nicht selbst verwirrt
       })}
 
-    <Pagination align="center" defaultCurrent={1} total={50} />
+      <Pagination align="center" defaultCurrent={1} total={50} />
     </Card>
   );
 }
