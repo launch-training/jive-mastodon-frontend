@@ -152,16 +152,23 @@ p {
 .city_box {
   display: flex;
   padding: 1rem;
-  gap : 0.75rem
+  gap: 0.75rem;
 }
 
 .sitting_elephant {
   height: 25rem;
 }
 
+.btn_container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0.5rem;
+}
+
 /*********************Media Queries*****************/
 @media only screen and (max-width: 900px) {
-  .flex_container{
+  .flex_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,5 +178,4 @@ p {
   .box {
     width: 80%;
   }
-
 }
