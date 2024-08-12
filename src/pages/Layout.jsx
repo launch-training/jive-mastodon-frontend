@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import { Button, ConfigProvider } from "antd";
+import { ConfigProvider } from "antd";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
